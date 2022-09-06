@@ -1,9 +1,8 @@
-const axios = require('axios').default;
+const express = require('express');
+const RoutesIndex = require('./routes/index.routes');
 
-const sayHey = (name) => {
-    return `Hey ${name}`
-}
 
-module.exports = {
-    sayHey
-}
+const app = express()
+app.use(express.json());
+app.use('/', new RoutesIndex().init());
+app.listen(3000, ()=> console.log('Server running on port 3000'))
