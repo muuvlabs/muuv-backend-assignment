@@ -1,9 +1,13 @@
-const axios = require('axios').default;
+const express = require( "express" );
+const app     = express();
+const port    = process.env.PORT || 3000;
 
-const sayHey = (name) => {
-    return `Hey ${name}`
+app.get( "/actorsWithMultipleCharacters", ( req, res ) => {
+    res.send( "Fill in this code" );
+});
+
+if ( process.env.NODE_ENV != "test" ) {
+    app.listen( port );
 }
 
-module.exports = {
-    sayHey
-}
+module.exports = app;
